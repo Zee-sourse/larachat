@@ -44,4 +44,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function avatar()
+    {
+        return 'https://ui-avatars.com/api/' . $this->name;
+    }
+
+
+
 }
