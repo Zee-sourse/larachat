@@ -32,6 +32,18 @@ class Index extends Component
 
     }
 
+    #[On('echo-private:room.chat.others.{room.id},MessageCreatedForOthers')]
+
+    public function prependMessageFromOthers(array $payload)
+    {
+        $this->prependMessage($payload['message']);
+
+    }
+
+
+
+
+
 
 
 

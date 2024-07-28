@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Chat\Room;
 
+use App\Events\MessageCreatedForOthers;
 use App\Models\Message;
 use App\Models\Room;
 use Livewire\Attributes\Layout;
@@ -35,6 +36,11 @@ class Index extends Component
 
 
         $this->dispatch('messages.created', $message->id);
+
+
+        broadcast(new MessageCreatedForOthers($this->room,$message))->toOthers();
+
+
 
     }
 

@@ -9,8 +9,7 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-Route::get('/room/{room:slug}' , Index::class);
-
+Route::get('/room/{room:slug}' , Index::class)->name('rooms.enter')->middleware(['auth', 'verified']);
 
 
 Route::view('profile', 'profile')
